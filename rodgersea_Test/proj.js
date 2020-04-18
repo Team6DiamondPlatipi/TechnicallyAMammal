@@ -6,7 +6,7 @@ var max = 10;
 var queryURL = "";
 var key = "20838232-00c1-498d-8c22-91d34f923df8";
 var token = "1beabf666d8a29";
-var address = "7711 fiesta way raleigh";
+var address = "input address here";
 
 var geocode_Base = `https://us1.locationiq.com/v1/search.php?key=${token}&q=${address}&format=json`;
 

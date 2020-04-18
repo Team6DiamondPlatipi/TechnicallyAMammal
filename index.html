@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">  
+    <title>Fuel Up</title>
 </head>
 <body>
-    
+
+<!-- Nav Bar -->
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper indigo">
+            <div class="container">
+                <a href="#" class="brand-logo">Fuel Up!</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="modal-trigger" href="#members">Members</a></li>
+                    <li><a href="">Tools</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+<!-- sidenav -->
+    <ul class="sidenav" id="mobile-links">
+        <li><a class="modal-trigger" href="#members">Members</a></li>
+        <li><a href="">Tools</a></li>
+    </ul>
+      
+
+
+<!-- Modals -->
+<div id="members" class="modal">
+    <div class="modal-content">
+        <div class="container">
+            <h4>Group Members</h4>
+            <ul class="collection">
+                <li class="collection-item"><span class="title">Sean</span><p class="grey-text">Materilize Guru</p></li>
+                <li class="collection-item"><span class="title">Ashley</span><p class="grey-text">CSS Master</p></li>
+                <li class="collection-item"><span class="title">Jon</span><p class="grey-text">API Sleuth</p></li>
+                <li class="collection-item"><span class="title">Elliott</span><p class="grey-text">Javascript Wizard</p></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close btn red">close</a>
+    </div>
+  </div>
+
+
+
+<!-- jquery and materialize JS files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<!-- starts navbar functions -->
+    <script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+        $('.modal').modal();
+    });
+    </script>
 </body>
 </html>

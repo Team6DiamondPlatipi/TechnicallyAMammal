@@ -45,16 +45,21 @@
             </div>
             <div class="input-field col s6">
                 <select>
-                <option value="" disabled selected >Choose your option</option>
-                <option value="1">Gas</option>
-                <option value="2">Electric</option>
+                <option value="" disabled selected>Choose your option</option>
+                <!-- data icon's input but blank for later use. Used to insert images/icons into the dropdown options. -->
+                <option value="1" data-icon="">
+                    <span>Gas</span>
+                </option>
+                <option value="2" data-icon="">
+                    <span>Electric</span>
+                </option>
                 </select>
                 <label>Fuel Type</label>
             </div>
         </div>
     </form>
     <p>Please select a location and fuel type and then submit to find fueling stations near by.</p>
-    <a href="#" class="btn green">
+    <a href="#" class="btn green waves-effect waves-light">
         submit
         <i class="material-icons white-text right">check</i>
     </a>

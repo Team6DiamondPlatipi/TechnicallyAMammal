@@ -1,11 +1,10 @@
-<p>### TechnicallyAMammal ###</p>
+## TechnicallyAMammal   
+a platypus is technically a mammal
 
-<p>a platypus is technically a mammal</p>
-
-<p>added readme branch</p>
-<p></p>
-<p>### CHECKLIST BASED ON GUIDELINES ###</p>
-<p>## Application Requirements</p>
+added readme branch 
+ ## TechnicallyAMammal   
+## CHECKLIST BASED ON GUIDELINES 
+## Application Requirements</p>
 <p>	Must use at least two server-side APIs</p>
 <p>	Must use a CSS framework _other than_ Bootstrapv
 <p>	Must be interactive (i.e: accept and respond to user input)</p>
@@ -13,10 +12,7 @@
 <p>	Must have a polished UI</p>
 <p>	Must meet good quality coding standard</p>
 <p>	Does not use alerts, confirms or prompts (look into _modals_)</p>
-<p>	Must be deployed to GitHub Pages</p>
-
-<p></p>
-<p>## Presentation Requirements </p>
+<p>	Must be deployed to GitHub PagesPresentation Requirements </p>
 <p>	Use project presentation template Below to address the following the criteria below.</p>
 (“https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing”) 
 <p>	Elevator pitch: a one minute description of your application</p>

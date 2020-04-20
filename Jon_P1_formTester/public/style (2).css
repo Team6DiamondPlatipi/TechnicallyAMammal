@@ -1,0 +1,17 @@
+h3 {
+    text-align: center;
+}
+
+.wrapper {
+    width: 500px;
+    margin: auto;
+}
+
+input {
+    width: 100%;
+}
+
+.field {
+    margin-bottom: 25px;
+}
+

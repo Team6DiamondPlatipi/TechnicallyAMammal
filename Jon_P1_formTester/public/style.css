@@ -1,0 +1,101 @@
+.body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 20px;
+	line-height: 2;
+	margin-bottom: 5px;
+}
+.jumbotron {
+	text-align: center;
+	background-color: transparent;
+	color: black;
+	border-radius: 0;
+	border-bottom: 12px solid black;
+}
+.textarea {
+	color: #000;
+	border-left: 1px solid black;
+	padding: 0px;	
+	background: transparent;
+	border: none;
+	resize: none;
+}
+
+.carousel-indicators li {
+	/* display: inline-block; */
+	width: 10px;
+	height: 10px;
+	margin: 10px;
+	text-indent: 0;
+	cursor: pointer;
+	border: none;
+	border-radius: 50%;
+	background-color: #089cf1;
+	box-shadow: inset 2px 2px 5px 5px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+	width: 20px;
+	height: 20px;
+	margin: 10px;
+	text-indent: 0;
+	background-color: #463b81;
+}
+.timeBL {
+	text-align: center;
+	border-radius: 15px;
+}
+.row {
+	background-color: lavender;
+	padding: 20px;
+	height: auto;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+}
+.row2 {
+	height: 250px;
+	
+	vertical-align: middle;
+}
+.btn {
+	border-radius: 15px;
+	background-color: #da6a0f;
+	color: white;
+}
+.btn i:hover {
+	font-size: 35px;
+	color:darkgreen;
+	transform: rotate(360deg);
+	transition:  step-end 3.7s ease-out;
+}
+.hour {
+	background-color: #ffffff;
+	color: #000000;
+	border-top: 5px dashed #060020;
+}
+.past {
+	background-color: #666;
+	color: white;
+}
+.present {
+	background-color: #06aed5;
+	color: darkgreen
+}
+.future {
+	background-color: #1b791b;
+	color: white;
+}
+
+/* 
+.themed-grid-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+.themed-container {
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+} */

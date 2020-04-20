@@ -1,7 +1,7 @@
 $(document).ready(function(){  
 	$("#submit").on("click", function(){
 		 event.preventDefault();
-		 var bandName = $('#bandName').val();
+		 var address = $('#address').val();
 		 // Convert Data into JSON 
 		 var form = $('form').serializeArray();
 		
@@ -11,16 +11,25 @@ $(document).ready(function(){
 		 
 	});
 });
+var userID = "T2wxpy51o7xLn4IRb0aA-wYFxHJm2fVI61S3T93kHvUh3OgaUJi2vNTjwKbJtvRvHyyhFVOE2JlajaiHeRXQbmmI4bGvwfUbknG7vIXJ756j8FNwzw9m47blHc6YXnYx";
 
+function getURL(){
+  baseURL = `https://www.yelp.com/biz/`+${alias}?+`adjust_creative=oqRgleuq4a8yss5LEoEVJg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=oqRgleuq4a8yss5LEoEVJg`
+  queryURL = `https://api.yelp.com/v3/user?id=`${userID}
+  $.ajax({        
+      url: queryURL,
+      method: "GET"
+  }).then(updatePage);
+}
 // <!-- Using user input of band name to get spotify artist id used to get similar artists below -->
 function generateInfo() {
-	var queryURL = "https://open.spotify.com/artist/c9bfbbad415244e7a7867d0a48eba0fb";
+  queryURL = `https://api.yelp.com/v3/user?id=`${businesses.name}
 	$.ajax({
 			url: queryURL,
 			method: "GET"
 	}).then(function (response) {
 			console.log(response);		 
-			var bandNameInput = newFunction(response);
+			var address = newFunction(response);
 		});
 	};
 

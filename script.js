@@ -22,7 +22,6 @@ function renderCards(){
         var key = "bb020c16-6b05-47d8-bec0-0e655caac430";
         var token = "1beabf666d8a29";
         var address = $("#address").val();
-        console.log(address);
         var geocode_Base = `https://us1.locationiq.com/v1/search.php?key=${token}&q=${address}&format=json`;
 
         getLatLon();
@@ -51,7 +50,6 @@ function renderCards(){
         }
         // return locations and types of chargers
         function updatePage(data) {
-            console.log(data);
             for (i=0; i < data.length; i++) {
                 locations[i] = `Address: ${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
                 chargerType[i] = `Charger Type: ${data[i].Connections[0].ConnectionType.FormalName}`;
@@ -73,8 +71,6 @@ function renderCards(){
                 `) 
             }
         }
-
-
     }else if($("#fuelType")[0].value == "gas"){
         console.log("gas was selected")
         // input ajax call that puts location data into location array with objects

@@ -51,7 +51,7 @@ function renderCards(){
         // return locations and types of chargers
         function updatePage(data) {
             for (i=0; i < data.length; i++) {
-                locations[i] = `Address: ${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
+                locations[i] = `${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
                 chargerType[i] = `Charger Type: ${data[i].Connections[0].ConnectionType.FormalName}`;
             }
             for(var i = 0; i < locations.length; i++){

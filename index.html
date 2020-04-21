@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/127766fc06.js" crossorigin="anonymous"></script>
 <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">  
+    <link rel="stylesheet" href="style.css">  
     <title>Fuel Up</title>
 </head>
 <body>
@@ -39,33 +40,50 @@
 <section class="container section">
     <form class="col s12">
         <div class="row">
-            <div class="input-field col s6">
+            <div id="location" class="input-field col s6">
                 <input placeholder="street, city, state, zip" id="address" type="text" class="validate">
                 <label for="address">Address</label>
             </div>
             <div class="input-field col s6">
-                <select>
-                <option value="" disabled selected>Choose your option</option>
-                <!-- data icon's input but blank for later use. Used to insert images/icons into the dropdown options. -->
-                <option value="1" data-icon="">
-                    <span>Gas</span>
-                </option>
-                <option value="2" data-icon="">
-                    <span>Electric</span>
-                </option>
+                <select id="fuelType">
+                    <option value="not selected" disabled selected>Choose your option</option>
+                    <!-- data icon's input but blank for later use. Used to insert images/icons into the dropdown options. -->
+                    <option value="gas" data-icon="">
+                        <span>Gas</span>
+                    </option>
+                    <option value="electric" data-icon="">
+                        <span>Electric</span>
+                    </option>
                 </select>
                 <label>Fuel Type</label>
             </div>
         </div>
     </form>
     <p>Please select a location and fuel type and then submit to find fueling stations near by.</p>
-    <a href="#" class="btn green waves-effect waves-light">
+    <a href="#" id="submit" class="btn green waves-effect waves-light">
         submit
         <i class="material-icons white-text right">check</i>
     </a>
 </section>
 
-      
+
+<!--------------- cards --------------->
+<section class="container section">
+    <h2></h2>
+        <div class="row">
+            <div id="card1" class="col s12 m4 l4 xl3"></div>
+            <div id="card2" class="col s12 m4 l4 xl3"></div>
+            <div id="card3" class="col s12 m4 l4 xl3"></div>
+            <div id="card4" class="col s12 m4 l4 xl3"></div>
+            <div id="card5" class="col s12 m4 l4 xl3"></div>
+            <div id="card6" class="col s12 m4 l4 xl3"></div>
+            <div id="card7" class="col s12 m4 l4 xl3"></div>
+            <div id="card8" class="col s12 m4 l4 xl3"></div>
+            <div id="card9" class="col s12 m4 l4 xl3 offset-xl3"></div>
+            <div id="card10" class="col s12 m4 offset-m4 xl3"></div>
+        </div>
+    </div>
+</section>
 
 
 <!--------------- Modals --------------->
@@ -82,9 +100,20 @@
         </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close btn red">close</a>
+        <a href="#!" class="modal-close btn red">close</a>
     </div>
-  </div>
+</div>
+<div id="error" class="modal">
+    <div class="modal-content">
+        <div class="container">
+            <h4>Please select a fuel type</h4>
+            <p>or else...</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close btn red">close</a>
+    </div>
+</div>
 
 
 
@@ -93,11 +122,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <!-- starts navbar functions -->
     <script>
-    $(document).ready(function(){
-        $('.sidenav').sidenav();
-        $('.modal').modal();
-        $('select').formSelect();
-    });
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.modal').modal();
+            $('select').formSelect();
+        });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

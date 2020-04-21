@@ -62,12 +62,11 @@ function renderCards(){
                     <div class="card">
                         <div class="card-image">
                             <img src="images/electric.jpg">
-                            <span class="card-title black opacity">Location Title</span>
                             <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                            <p class="location"><i class="small material-icons">place</i>-${locations[i]}-</p>
-                            <p><i class="small material-icons">ev_station</i>Type: ${chargerType[i]}</p>
+                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location truncate"><i class="small material-icons">place</i>${locations[i]}</a>
+                            <p><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>
                 `) 

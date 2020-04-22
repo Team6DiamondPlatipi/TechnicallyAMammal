@@ -63,7 +63,7 @@ function renderCards(){
                             <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i>${locations[i]}</a>
+                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a>
                             <p><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>

@@ -52,18 +52,18 @@ function renderCards(){
         function updatePage(data) {
             for (i=0; i < data.length; i++) {
                 locations[i] = `${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
-                chargerType[i] = `Charger Type: ${data[i].Connections[0].ConnectionType.FormalName}`;
+                chargerType[i] = `Charger - ${data[i].Connections[0].ConnectionType.FormalName}`;
             }
             for(var i = 0; i < locations.length; i++){
                 $("#card"+(i+1)).empty()
                 $("#card"+(i+1)).append(`
                     <div class="card">
                         <div class="card-image">
-                            <img src="images/electric.jpg">
+                            <img class="imgH" src="images/electric.jpg">
                             <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location truncate"><i class="small material-icons">place</i>${locations[i]}</a>
+                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i>${locations[i]}</a>
                             <p><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>

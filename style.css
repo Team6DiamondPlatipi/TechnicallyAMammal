@@ -1,3 +1,11 @@
 .opacity {
   opacity: .6;
   }
+  .card {
+    min-height: 365px;
+  }
+  /* .imgH{
+    min-height: 150px;
+  } */
+
+  /* truncate */

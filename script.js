@@ -64,3 +64,25 @@ function renderCards(){
         $("#card"+(i+1)).empty()
     }
 };
+
+
+
+// //Saving info to list/local storage
+
+// $("#save").click(function() {
+//     alert("button was clicked");
+//     saveToFavorites()
+// });
+
+// var savedItems = [];
+
+
+//     function saveToFavorites() {
+//         var savedPlace = $(".savePlace").val();
+//         savedPlace.push();
+//         console.log(savedPlace);
+//         // localStorage.setItem(locations, value);
+
+//         // $("#placesList").append(listItem);
+// }
+

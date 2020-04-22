@@ -25,6 +25,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a class="modal-trigger" href="#members">Members</a></li>
                     <li><a class="modal-trigger" href="#tools">Tools</a></li>
+                    <li><a class="modal-trigger" href="#historyModal">Saved Places</a></li>
                 </ul>
             </div>
         </nav>
@@ -33,7 +34,8 @@
     <!-- sidenav -->
     <ul class="sidenav" id="mobile-links">
         <li><a class="modal-trigger" href="#members">Members</a></li>
-        <li><a href="">Tools</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a class="modal-trigger" href="#historyModal">Saved Places</a></li>
     </ul>
 
 <!--------------- inputs --------------->
@@ -132,7 +134,26 @@
         <a href="#!" class="modal-close btn red">close</a>
     </div>
 </div>
-
+    <!--History Modal -->
+<div id="historyModal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Saved Places Appear Below</h4>
+      <div id="savedPlacesDiv">
+        <!-- Option of links -->
+        <!--  <a href="#!" class="collection-item">Location 1</a> -->
+        <!-- Otherwise, list items: -->
+        <ul id="placesList">
+            <li class="saved-item">Location 1</li>
+            <li class="saved-item">Location 2</li>
+            <li class="saved-item">Location 3</li>
+            <li class="saved-item">Location 4</li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close btn red">Close</a>
+    </div>
+  </div>
 
 
 <!-- jquery and materialize JS files -->

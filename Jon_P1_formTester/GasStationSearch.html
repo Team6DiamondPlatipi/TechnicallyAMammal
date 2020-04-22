@@ -21,8 +21,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
       <script>
+         var locations = [];
+         var distances = [];
 
-// sat in with Tom and he referenced this example to get input from from and tie it to the url (Unit 6 Activity 9)
+
          var movie = $(this).attr("data-name");
          var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
@@ -32,10 +34,22 @@
             url: myurl,
             headers: {
              'Authorization':'Bearer T2wxpy51o7xLn4IRb0aA-wYFxHJm2fVI61S3T93kHvUh3OgaUJi2vNTjwKbJtvRvHyyhFVOE2JlajaiHeRXQbmmI4bGvwfUbknG7vIXJ756j8FNwzw9m47blHc6YXnYx',
-         },
+         }(.then(updateGas)) 
+},
             method: 'GET',
             dataType: 'json',
             success: function(data){
+               console.log(locations)
+                     for (var i = 0; i < 10; i++) {
+                        locations[i] = totalresults.business[i].address;
+                        distances[i] = totalresults.business[i].distance;
+                     }
+                     
+                     function gas (data) {
+   getURL();
+}
+                     console.log(locations)
+               console.log(data)
                 // Grab the results from the API JSON return
                 var totalresults = data.total;
                 // If our results are greater than 0, continue
@@ -56,16 +70,18 @@
                         var city = item.location.city;
                         var state = item.location.state;
                         var zipcode = item.location.zip_code;
-                        //variable that converts data to html and from meters to miles
+                        //meters to miles
                         var distance = Math.round((item.distance/1609.34)*100)/100.0;
 
-                     var gasOutput = 
-
-      for (var i = 0; i < 10; i++) {
-gas = 
-// It then takes the user's response and "pushes" (or adds) the variable to the end of the locations array.
-locations.push(gas);
-}
+//                      var gasOutput = 
+console.log(locations)
+                     for (var i = 0; i < 10; i++) {
+                        locations[i] = totalresults.business[i].address;
+                        distances[i] = totalresults.business[i].distance;
+                     }
+                     console.log(locations)
+   //                         // It then takes the user's response and "pushes" (or adds) the variable to the end of the locations array.
+//                         locations.push(gas);
 
 // array is called locations
 
@@ -82,3 +98,53 @@ locations.push(gas);
       </script>
    </body>
 </html>
+
+
+<!-- 
+// set test variables
+var lat = "";
+var lon = "";
+var max = 10;
+var queryURL = "";
+var key = "20838232-00c1-498d-8c22-91d34f923df8";
+var token = "1beabf666d8a29";
+var address = "7711 fiesta way raleigh";
+
+var geocode_Base = `https://us1.locationiq.com/v1/search.php?key=${token}&q=${address}&format=json`;
+
+getLatLon();
+
+// convert address to lat lon
+function getLatLon() {
+    $.ajax({
+        url: geocode_Base,
+        method: "GET"
+    }).then(updateLatLon);
+}
+// set lat and lon variables from api
+function updateLatLon(latlon) {
+    lat = latlon[0].lat;
+    lon = latlon[0].lon;
+    getURL();
+}
+// get electric data from api
+function getURL(){
+    baseURL = "https://api.openchargemap.io/v3/poi/?";
+    queryURL = `${baseURL}&key=${key}&output=json&latitude=${lat}&longitude=${lon}&maxresults=${max}&distanceunit=Miles&distance=25`
+    $.ajax({        
+        url: queryURL,
+        method: "GET"
+    }).then(updatePage);
+}
+// return locations and types of chargers
+function updatePage(data) {
+    for (i=0; i < data.length; i++) {
+        var location = `Address: ${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
+        var chargerType = `Charger Type: ${data[i].Connections[0].ConnectionType.FormalName}`;
+        console.log(location);
+        console.log(chargerType);
+        console.log("");
+    }
+} -->
+
+

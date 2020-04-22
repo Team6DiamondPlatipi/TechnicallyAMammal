@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+      <title>Jon's TEST</title>
+   </head>
+   <body>
+      <script>
+         var locations = [];
+         var distances = [];
+
+         var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=gas&location=27510";
+         getURL();
+         function getURL() {
+            $.ajax({
+            url: myurl,
+            method: "GET",
+            dataType: 'json',
+            headers: {
+               'Authorization':'Bearer T2wxpy51o7xLn4IRb0aA-wYFxHJm2fVI61S3T93kHvUh3OgaUJi2vNTjwKbJtvRvHyyhFVOE2JlajaiHeRXQbmmI4bGvwfUbknG7vIXJ756j8FNwzw9m47blHc6YXnYx',
+            }
+         }).then(getGas);
+
+         function getGas(data) {
+            console.log(data);
+            console.log(locations);
+            for (var i = 0; i < 10; i++) {
+               locations[i] = data.businesses[i].location.address1;
+               distances[i] = data.businesses[i].distance;
+            }
+            console.log(locations);
+            console.log(distances);
+         }
+      }
+      </script>
+   </body>
+</html>

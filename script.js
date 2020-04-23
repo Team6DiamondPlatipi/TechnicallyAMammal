@@ -1,13 +1,7 @@
 var platipus = "technically a mammal";
 var locations = [];
-<<<<<<< HEAD
 var charger_Type = [];
 var distances = [];
-=======
-//Was var charger_Type = [];
-var chargerType = [];
-
->>>>>>> 726c5c2dc00621b5bf21bf514e1f4be5ea347084
 
 $("#submit").click(function(){
     // console.log()

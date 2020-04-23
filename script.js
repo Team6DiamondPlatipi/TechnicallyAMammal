@@ -6,11 +6,12 @@ var distances = [];
 $("#submit").click(function(){
     // console.log()
     renderCards()
+    $("#address")[0].value = ""
 });
 
-
+// --- function to render cards ---
 function renderCards(){
-
+    // render electric
     if($("#fuelType")[0].value == "electric"){
         console.log("electric was selected")
         // set test variables
@@ -103,7 +104,7 @@ function renderCards(){
 
 
 
-
+// render gas
     }else if($("#fuelType")[0].value == "gas"){
         console.log("gas was selected")
         

@@ -1,6 +1,7 @@
 var platipus = "technically a mammal";
 var locations = [];
-var charger_Type = [];
+//Was var charger_Type = [];
+var chargerType = [];
 
 
 $("#submit").click(function(){
@@ -10,11 +11,13 @@ $("#submit").click(function(){
 
 
 function renderCards(){
+
     if($("#fuelType")[0].value == "electric"){
         console.log("electric was selected")
         // set test variables
         locations = [];
         chargerType = [];
+
         var lat = "";
         var lon = "";
         var max = 10;
@@ -48,6 +51,7 @@ function renderCards(){
                 method: "GET"
             }).then(updatePage);
         }
+
         // return locations and types of chargers
         function updatePage(data) {
             for (i=0; i < data.length; i++) {
@@ -55,21 +59,51 @@ function renderCards(){
                 chargerType[i] = `Charger - ${data[i].Connections[0].ConnectionType.FormalName}`;
             }
             for(var i = 0; i < locations.length; i++){
+
+                //create save buttons on each card with unique ID's (saveElectric1 through saveElectric10)
+                var saveElecID = "saveElectric" + i;
+                var savBtn = $("<button>");
+                savBtn.attr("id", saveElecID);
+
+
                 $("#card"+(i+1)).empty()
                 $("#card"+(i+1)).append(`
                     <div class="card">
                         <div class="card-image">
                             <img class="imgH" src="images/electric.jpg">
-                            <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                            <button id="${saveElecID}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></button>
                         </div>
                         <div class="card-content">
                             <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a>
                             <p><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>
-                `) 
+                `)
+                
+                // console.log(locations[i]);
             }
+
+            //Save button for Electric cards
+            $("button").click(function() {
+            var id = $(this).attr('id');
+            // console.log(id);
+            var buttonPosition = id.charAt(id.length-1);
+            console.log(buttonPosition);
+            var selectedLocation = locations[buttonPosition];
+            var listItem = $("<li>");
+            listItem.text(selectedLocation);
+            localStorage.setItem(location, selectedLocation);
+            console.log(listItem);
+            $("#placesList").append(listItem);
+            // var selectedLocation = `https://www.google.com/maps/search/ + ${locations[buttonPosition]}`;
+            // console.log(selectedLocation);
+            // alert(selectedLocation);
+            });
         }
+
+
+
+
     }else if($("#fuelType")[0].value == "gas"){
         console.log("gas was selected")
         // input ajax call that puts location data into location array with objects
@@ -103,23 +137,14 @@ function renderCards(){
 
 
 
+//  function saveToHistory(id, location) {
+//     console.log(id);
+//     console.log(location);
 
-//Saving info to list/local storage
+//         // var savedPlace = $(".savePlace").val();
+//         // savedItems.push(savedPlace);
+//         // console.log(savedItems);
+//         // // localStorage.setItem(locations, value);
 
-// $("#save").click(function() {
-//     alert("button was clicked");
-//     saveToFavorites()
-// });
-
-// var savedItems = [];
-
-
-//     function saveToFavorites() {
-//         var savedPlace = $(".savePlace").val();
-//         savedPlace.push();
-//         console.log(savedPlace);
-//         // localStorage.setItem(locations, value);
-
-//         // $("#placesList").append(listItem);
+//         // // $("#placesList").append(listItem);
 // }
-

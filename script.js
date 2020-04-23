@@ -1,8 +1,13 @@
 var platipus = "technically a mammal";
 var locations = [];
+<<<<<<< HEAD
+var charger_Type = [];
+var distances = [];
+=======
 //Was var charger_Type = [];
 var chargerType = [];
 
+>>>>>>> 726c5c2dc00621b5bf21bf514e1f4be5ea347084
 
 $("#submit").click(function(){
     // console.log()
@@ -106,29 +111,51 @@ function renderCards(){
 
     }else if($("#fuelType")[0].value == "gas"){
         console.log("gas was selected")
-        // input ajax call that puts location data into location array with objects
-        // ajax open
-        // for loop
-        price = "$3.00"
-        address = "42 walaby way, sydney"
-        // ajax close
-        for(var i = 0; i < locations.length; i++){
-            $("#card"+(i+1)).empty()
-            $("#card"+(i+1)).append(`
-                <div class="card">
-                    <div class="card-image">
-                        <img src="images/fuel.jpg">
-                        <span class="card-title black opacity">Location Title</span>
-                        <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p class="location"><i class="small material-icons">place</i>-${address}-</p>
-                        <p><i class="small material-icons">attach_money</i>Price: ${price}</p>
-                    </div>
+        
+        // GAS INPUT
+        var locations = [];
+        var distances = [];
+        var address = $("#address").val();
+        var myurl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=gas&location=${address}`;
+        getURL();
+        function getURL() {
+           $.ajax({
+           url: myurl,
+           method: "GET",
+           dataType: 'json',
+           headers: {
+              'Authorization':'Bearer T2wxpy51o7xLn4IRb0aA-wYFxHJm2fVI61S3T93kHvUh3OgaUJi2vNTjwKbJtvRvHyyhFVOE2JlajaiHeRXQbmmI4bGvwfUbknG7vIXJ756j8FNwzw9m47blHc6YXnYx',
+           }
+        }).then(getGas);
+
+        function getGas(data) {
+           console.log(data);
+           console.log(locations);
+           for (var i = 0; i < 10; i++) {
+              locations[i] = data.businesses[i].location.address1;
+              distances[i] = `Distance (miles): ${Math.round((data.businesses[i].distance/1609.34)*100)/100.0}`;
+           }
+           console.log(locations);
+           console.log(distances);
+        
+     
+     for(var i = 0; i < locations.length; i++){
+        $("#card"+(i+1)).empty()
+        $("#card"+(i+1)).append(`
+            <div class="card">
+                <div class="card-image">
+                    <img class="gas" src="images/fuel.jpg">
+                    <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
                 </div>
-            `) 
-        }
-    }else{
+                <div class="card-content">
+                    <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a>
+                    <p><i class="small material-icons">distance</i>${distances[i]}</p>
+                </div>
+            </div>
+        `)}
+}}
+    }
+else{
         console.log("nothing was selected")
         $("#error").modal("open");
         $("#card"+(i+1)).empty()

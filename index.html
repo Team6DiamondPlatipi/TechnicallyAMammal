@@ -18,7 +18,7 @@
     <div class="navbar-fixed">
         <nav class="nav-wrapper indigo">
             <div class="container">
-                <i class="fas fa-map-marked"></i><a href="#" class="brand-logo">Fuel Up!</a>
+                <i class="fas fa-map-marked"></i><a href="index.html" class="brand-logo">Fuel Up!</a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
@@ -137,12 +137,14 @@
     <!--History Modal -->
 <div id="historyModal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Saved Places</h4>
+      <h4 style="text-align: center;">Saved Places</h4>
       <div id="savedPlacesDiv">
         <!-- Option of links -->
         <!--  <a href="#!" class="collection-item">Location 1</a> -->
         <!-- Otherwise, list items: -->
-        <ul id="placesList"></ul>
+        <ol id="electricPlacesList" style="font-size: 20px; font-weight: bold; color:#039be5;">Electric Stations: </ol>
+        <br>
+        <ol id="gasPlacesList" style="font-size: 20px; font-weight: bold; color:#039be5;">Gas Stations:</ol>
       </div>
     </div>
     <div class="modal-footer">

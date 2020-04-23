@@ -2,6 +2,8 @@ var platipus = "technically a mammal";
 var locations = [];
 var charger_Type = [];
 var distances = [];
+var names = [];
+var phones = [];
 
 $("#submit").click(function(){
     // console.log()
@@ -54,8 +56,10 @@ function renderCards(){
         // return locations and types of chargers
         function updatePage(data) {
             for (i=0; i < data.length; i++) {
-                locations[i] = `${data[i].AddressInfo.Title} ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode}`;
+                names[i] = data[i].AddressInfo.Title
+                locations[i] = `${data[i].AddressInfo.AddressLine1}, ${data[i].AddressInfo.Town}, ${data[i].AddressInfo.Postcode} ${data[i].AddressInfo.StateOrProvince}`;
                 chargerType[i] = `Charger - ${data[i].Connections[0].ConnectionType.FormalName}`;
+                phones[i] = data[i].AddressInfo.ContactTelephone1;
             }
             for(var i = 0; i < locations.length; i++){
 
@@ -73,13 +77,15 @@ function renderCards(){
                             <button id="${saveElecID}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></button>
                         </div>
                         <div class="card-content">
-                            <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a>
-                            <p><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
+                            <i class='fas fa-building'  style='font-size:24px'></i>${names[i]} 
+                            <p><br><i class='fas fa-phone'  style='font-size:24px'></i>${phones[i]} </p>
+                            <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
+                            <p><br><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>
                 `)
                 
-                // console.log(locations[i]);
+                 console.log(data);
             }
 
             //Save button for Electric cards
@@ -107,8 +113,9 @@ function renderCards(){
         console.log("gas was selected")
         
         // GAS INPUT
-        var locations = [];
-        var distances = [];
+        // var locations = [];
+        // var distances = [];
+        // var names = [];
         var address = $("#address").val();
         var myurl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=gas&location=${address}`;
         getURL();
@@ -126,12 +133,15 @@ function renderCards(){
            console.log(data);
            console.log(locations);
            for (var i = 0; i < 10; i++) {
-              locations[i] = data.businesses[i].location.address1;
-              distances[i] = `Distance (miles): ${Math.round((data.businesses[i].distance/1609.34)*100)/100.0}`;
+              locations[i] = `${data.businesses[i].location.address1}, ${data.businesses[i].location.city}, ${data.businesses[i].location.state} ${data.businesses[i].location.zip_code}`;
+
+              distances[i] = ` Distance (miles): ${Math.round((data.businesses[i].distance/1609.34)*100)/100.0}`;
+              names[i] = data.businesses[i].name;
+              phones[i] = data.businesses[i].display_phone;
            }
            console.log(locations);
            console.log(distances);
-        
+           console.log(phones);
      
      for(var i = 0; i < locations.length; i++){
         $("#card"+(i+1)).empty()
@@ -142,8 +152,10 @@ function renderCards(){
                     <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
-                    <a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a>
-                    <p><i class="small material-icons">distance</i>${distances[i]}</p>
+                    <i class='fas fa-building'  style='font-size:24px'></i>${names[i]} 
+                    <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
+                    <p><br><i class='fas fa-phone'  style='font-size:24px'></i>${phones[i]} </p>
+                    <p><br><i class='fas fa-route'  style='font-size:24px'></i>${distances[i]}</p>
                 </div>
             </div>
         `)}

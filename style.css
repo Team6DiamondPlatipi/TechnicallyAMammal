@@ -4,6 +4,10 @@
   .card {
     min-height: 365px;
   }
+  .icon {
+    position: relative;
+    top: 10px;
+  }
   /* .imgH{
     min-height: 150px;
   } */

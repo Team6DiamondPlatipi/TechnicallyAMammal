@@ -8,11 +8,12 @@ var phones = [];
 $("#submit").click(function(){
     // console.log()
     renderCards()
+    $("#address")[0].value = ""
 });
 
-
+// --- function to render cards ---
 function renderCards(){
-
+    // render electric
     if($("#fuelType")[0].value == "electric"){
         console.log("electric was selected")
         // set test variables
@@ -96,10 +97,11 @@ function renderCards(){
             console.log(buttonPosition);
             var selectedLocation = locations[buttonPosition];
             var listItem = $("<li>");
+            listItem.attr("style", "font-size: 15px; color: black;")
             listItem.text(selectedLocation);
             localStorage.setItem(location, selectedLocation);
             console.log(listItem);
-            $("#placesList").append(listItem);
+            $("#electricPlacesList").append(listItem);
             // var selectedLocation = `https://www.google.com/maps/search/ + ${locations[buttonPosition]}`;
             // console.log(selectedLocation);
             // alert(selectedLocation);
@@ -108,7 +110,7 @@ function renderCards(){
 
 
 
-
+// render gas
     }else if($("#fuelType")[0].value == "gas"){
         console.log("gas was selected")
         
@@ -144,12 +146,18 @@ function renderCards(){
            console.log(phones);
      
      for(var i = 0; i < locations.length; i++){
+
+        //create save buttons on each card with unique ID's for gas section
+        var saveGasID = "saveGas" + i;
+        var savBtnGas = $("<button>");
+        savBtnGas.attr("id", saveGasID);
+        
         $("#card"+(i+1)).empty()
         $("#card"+(i+1)).append(`
             <div class="card">
                 <div class="card-image">
                     <img class="gas" src="images/fuel.jpg">
-                    <a id="save" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></a>
+                    <button id="${saveGasID}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></button>
                 </div>
                 <div class="card-content">
                     <i class='fas fa-building'  style='font-size:24px'></i>${names[i]} 
@@ -159,6 +167,24 @@ function renderCards(){
                 </div>
             </div>
         `)}
+
+        //Save button for Electric cards
+        $("button").click(function() {
+            var id2 = $(this).attr('id');
+            // console.log(id);
+            var buttonPosition2 = id2.charAt(id2.length-1);
+            console.log(buttonPosition2);
+            var selectedLocation2 = locations[buttonPosition2];
+            var gasListItem = $("<li>");
+            gasListItem.attr("style", "font-size: 15px; color: black;")
+            gasListItem.text(selectedLocation2);
+            localStorage.setItem(location, selectedLocation2);
+            console.log(gasListItem);
+            $("#gasPlacesList").append(gasListItem);
+            // var selectedLocation = `https://www.google.com/maps/search/ + ${locations[buttonPosition]}`;
+            // console.log(selectedLocation);
+            // alert(selectedLocation);
+            });
 }}
     }
 else{
@@ -177,7 +203,7 @@ else{
 //         // var savedPlace = $(".savePlace").val();
 //         // savedItems.push(savedPlace);
 //         // console.log(savedItems);
-//         // // localStorage.setItem(locations, value);
+//       localStorage.setItem(locations, value);
 
-//         // // $("#placesList").append(listItem);
+//         $("#placesList").append(listItem);
 // }

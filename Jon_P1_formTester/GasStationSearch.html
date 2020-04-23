@@ -24,76 +24,29 @@
          var locations = [];
          var distances = [];
 
-
-         var movie = $(this).attr("data-name");
-         var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-
          var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=gas&location=27510";
-
-         $.ajax({
+         getURL();
+         function getURL() {
+            $.ajax({
             url: myurl,
+            method: "GET",
+            dataType: 'json',
             headers: {
              'Authorization':'Bearer T2wxpy51o7xLn4IRb0aA-wYFxHJm2fVI61S3T93kHvUh3OgaUJi2vNTjwKbJtvRvHyyhFVOE2JlajaiHeRXQbmmI4bGvwfUbknG7vIXJ756j8FNwzw9m47blHc6YXnYx',
-         }(.then(updateGas)) 
-},
-            method: 'GET',
-            dataType: 'json',
-            success: function(data){
-               console.log(locations)
-                     for (var i = 0; i < 10; i++) {
-                        locations[i] = totalresults.business[i].address;
-                        distances[i] = totalresults.business[i].distance;
-                     }
-                     
-                     function gas (data) {
-   getURL();
-}
-                     console.log(locations)
-               console.log(data)
-                // Grab the results from the API JSON return
-                var totalresults = data.total;
-                // If our results are greater than 0, continue
-                if (totalresults > 0){
-                    // Display a header on the page with the number of results
-                    $('#results').append('<h5>We found ' + totalresults + ' results!</h5>');
-                    // Itirate through the JSON array of 'businesses' which was returned by the API
-                    $.each(data.businesses, function(i, item) {
-                        // Store each business's object in a variable
-                        var id = item.id;
-                        var alias = item.alias;
-                        var phone = item.display_phone;
-                        var image = item.image_url;
-                        var name = item.name;
-                        var rating = item.rating;
-                        var reviewcount = item.review_count;
-                        var address = item.location.address1;
-                        var city = item.location.city;
-                        var state = item.location.state;
-                        var zipcode = item.location.zip_code;
-                        //meters to miles
-                        var distance = Math.round((item.distance/1609.34)*100)/100.0;
-
-//                      var gasOutput = 
-console.log(locations)
-                     for (var i = 0; i < 10; i++) {
-                        locations[i] = totalresults.business[i].address;
-                        distances[i] = totalresults.business[i].distance;
-                     }
-                     console.log(locations)
-   //                         // It then takes the user's response and "pushes" (or adds) the variable to the end of the locations array.
-//                         locations.push(gas);
-
-// array is called locations
-
-                        // Append our result into our page
-                        $('#results').append('<div id="' + id + '" style="margin-top:50px;margin-bottom:50px;"><img src="' + image + '" style="width:200px;height:150px;"><br>We found <b>' + name + '</b> (' + alias + ')<br>Address: ' + address + ' ' + city + ', ' + state + ' ' + zipcode + '<br>Distance (miles): ' + distance + ' miles<br>Phone: ' + phone + '<br>This business has a rating of ' + rating + ' with ' + reviewcount + ' reviews.</div>');
-                  });
-                } else {
-                    // If our results are 0; no businesses were returned by the JSON therefor we display on the page no results were found
-                    $('#results').append('<h5>We discovered no results! Please check your address and try again.</h5>');
-                }
             }
-         });      
+         }).then(getGas);
+
+         function getGas(data) {
+            console.log(data);
+            console.log(locations)
+            for (var i = 0; i < 10; i++) {
+               locations[i] = data.businesses[i].location.address1;
+               distances[i] = data.businesses[i].distance;
+            }
+            console.log(locations);
+            console.log(distances);
+         }
+      }
 
       </script>
    </body>

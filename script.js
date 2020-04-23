@@ -190,7 +190,7 @@ else{
 //         // var savedPlace = $(".savePlace").val();
 //         // savedItems.push(savedPlace);
 //         // console.log(savedItems);
-//         // // localStorage.setItem(locations, value);
+//       localStorage.setItem(locations, value);
 
-//         // // $("#placesList").append(listItem);
+//         $("#placesList").append(listItem);
 // }

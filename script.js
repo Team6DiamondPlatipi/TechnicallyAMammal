@@ -5,8 +5,15 @@ var distances = [];
 var names = [];
 var phones = [];
 
+$("body").keypress(function(event) {
+    if (event.which == 13) {
+        console.log("yes");
+        renderCards()
+        $("#address")[0].value = "";
+    }
+})
+
 $("#submit").click(function(){
-    // console.log()
     renderCards()
     $("#address")[0].value = ""
 });

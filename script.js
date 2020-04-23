@@ -161,7 +161,7 @@ function renderCards(){
         
         $("#card"+(i+1)).empty()
         $("#card"+(i+1)).append(`
-            <div class="card">
+            <div class="card gascard">
                 <div class="card-image">
                     <img class="gas" src="images/fuel.jpg">
                     <button id="${saveGasID}" class="btn-floating halfway-fab waves-effect waves-light teal"><i class="material-icons">add</i></button>

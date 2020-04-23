@@ -2,7 +2,10 @@
   opacity: .6;
   }
   .card {
-    min-height: 365px;
+    min-height: 480px;
+  }
+  .gascard {
+    min-height: 420px;
   }
   .icon {
     position: relative;

@@ -31,10 +31,10 @@ function renderHistory(){
         localStorage.setItem("hist", JSON.stringify(hist));
     } else { 
         for( var i = 0; i < hist.elecHist.length; i++){
-            $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.elecHist[i]}">${hist.elecHist[i]}</a></li>`);
+            $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.elecHist[i]}" target="_blank">${hist.elecHist[i]}</a></li>`);
         }
         for( var i = 0; i < hist.gasHist.length; i++){
-            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.gasHist[i]}">${hist.gasHist[i]}</a></li>`);
+            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.gasHist[i]}" target="_blank">${hist.gasHist[i]}</a></li>`);
         }
     };
 };
@@ -109,7 +109,7 @@ function renderCards(){
                         <div class="card-content">
                             <i class='fas fa-building'  style='font-size:24px'></i>${names[i]} 
                             <p><br><i class='fas fa-phone'  style='font-size:24px'></i>${phones[i]} </p>
-                            <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
+                            <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location" target="_blank"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
                             <p><br><i class="small material-icons">ev_station</i>${chargerType[i]}</p>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ function renderCards(){
                 listItem.attr("style", "font-size: 15px; color: black;")
                 listItem.text(selectedLocation);
                 //renders history item to correct list 
-                $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation}">${selectedLocation}</a></li>`);
+                $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation}" target="_blank">${selectedLocation}</a></li>`);
                 // pushes item to history for rendering when page reloads
                 hist.elecHist.push(selectedLocation)
                 localStorage.setItem("hist", JSON.stringify(hist));
@@ -189,7 +189,7 @@ function renderCards(){
                 </div>
                 <div class="card-content">
                     <i class='fas fa-building'  style='font-size:24px'></i>${names[i]} 
-                    <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
+                    <p><br><a href="https://www.google.com/maps/search/${locations[i]}" class="location" target="_blank"><i class="small material-icons">place</i><span class="savePlace">${locations[i]}</span></a></p>
                     <p><br><i class='fas fa-phone'  style='font-size:24px'></i>${phones[i]} </p>
                     <p><br><i class='fas fa-route'  style='font-size:24px'></i>${distances[i]}</p>
                 </div>
@@ -207,7 +207,7 @@ function renderCards(){
             gasListItem.attr("style", "font-size: 15px; color: black;")
             gasListItem.text(selectedLocation2);
             // reders to history list
-            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation2}">${selectedLocation2}</a></li>`);
+            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation2}" target="_blank">${selectedLocation2}</a></li>`);
             // pushes items to local storage
             hist.gasHist.push(selectedLocation2)
             localStorage.setItem("hist", JSON.stringify(hist));

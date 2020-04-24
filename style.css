@@ -11,6 +11,10 @@
     position: relative;
     top: 10px;
   }
+  .histlink {
+    font-size: 15px;
+    color: black;
+  }
   /* .imgH{
     min-height: 150px;
   } */

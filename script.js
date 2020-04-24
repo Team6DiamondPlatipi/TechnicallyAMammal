@@ -4,12 +4,34 @@ var charger_Type = [];
 var distances = [];
 var names = [];
 var phones = [];
+var hist
 
 $("#submit").click(function(){
     // console.log()
     renderCards()
     $("#address")[0].value = ""
 });
+
+
+// 
+function renderHistory(){
+    hist = JSON.parse(localStorage.getItem("hist"));
+    if( hist === null){
+        hist = {
+            gasHist: [],
+            elecHist: []
+        };
+        localStorage.setItem("hist", JSON.stringify(hist));
+    } else { 
+        for( var i = 0; i < hist.elecHist.length; i++){
+            $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.elecHist[i]}">${hist.elecHist[i]}</a></li>`);
+        }
+        for( var i = 0; i < hist.gasHist.length; i++){
+            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${hist.gasHist[i]}">${hist.gasHist[i]}</a></li>`);
+        }
+    };
+};
+renderHistory();
 
 // --- function to render cards ---
 function renderCards(){
@@ -91,20 +113,19 @@ function renderCards(){
 
             //Save button for Electric cards
             $("button").click(function() {
-            var id = $(this).attr('id');
-            // console.log(id);
-            var buttonPosition = id.charAt(id.length-1);
-            console.log(buttonPosition);
-            var selectedLocation = locations[buttonPosition];
-            var listItem = $("<li>");
-            listItem.attr("style", "font-size: 15px; color: black;")
-            listItem.text(selectedLocation);
-            localStorage.setItem(location, selectedLocation);
-            console.log(listItem);
-            $("#electricPlacesList").append(listItem);
-            // var selectedLocation = `https://www.google.com/maps/search/ + ${locations[buttonPosition]}`;
-            // console.log(selectedLocation);
-            // alert(selectedLocation);
+                var id = $(this).attr('id');
+                var buttonPosition = id.charAt(id.length-1);
+                console.log(buttonPosition);
+                var selectedLocation = locations[buttonPosition];
+                // we dont use this code but for some reason it's required to render... no idea why
+                var listItem = $("<li>");
+                listItem.attr("style", "font-size: 15px; color: black;")
+                listItem.text(selectedLocation);
+                //renders history item to correct list 
+                $("#electricPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation}">${selectedLocation}</a></li>`);
+                // pushes item to history for rendering when page reloads
+                hist.elecHist.push(selectedLocation)
+                localStorage.setItem("hist", JSON.stringify(hist));
             });
         }
 
@@ -168,22 +189,21 @@ function renderCards(){
             </div>
         `)}
 
-        //Save button for Electric cards
+        //Save button for gas cards
         $("button").click(function() {
             var id2 = $(this).attr('id');
-            // console.log(id);
             var buttonPosition2 = id2.charAt(id2.length-1);
             console.log(buttonPosition2);
             var selectedLocation2 = locations[buttonPosition2];
+            // we dont use this code but for some reason it's required to render... no idea why
             var gasListItem = $("<li>");
             gasListItem.attr("style", "font-size: 15px; color: black;")
             gasListItem.text(selectedLocation2);
-            localStorage.setItem(location, selectedLocation2);
-            console.log(gasListItem);
-            $("#gasPlacesList").append(gasListItem);
-            // var selectedLocation = `https://www.google.com/maps/search/ + ${locations[buttonPosition]}`;
-            // console.log(selectedLocation);
-            // alert(selectedLocation);
+            // reders to history list
+            $("#gasPlacesList").append(`<li><a class="histlink" href="https://www.google.com/maps/search/${selectedLocation2}">${selectedLocation2}</a></li>`);
+            // pushes items to local storage
+            hist.gasHist.push(selectedLocation2)
+            localStorage.setItem("hist", JSON.stringify(hist));
             });
 }}
     }
@@ -193,17 +213,3 @@ else{
         $("#card"+(i+1)).empty()
     }
 };
-
-
-
-//  function saveToHistory(id, location) {
-//     console.log(id);
-//     console.log(location);
-
-//         // var savedPlace = $(".savePlace").val();
-//         // savedItems.push(savedPlace);
-//         // console.log(savedItems);
-//       localStorage.setItem(locations, value);
-
-//         $("#placesList").append(listItem);
-// }

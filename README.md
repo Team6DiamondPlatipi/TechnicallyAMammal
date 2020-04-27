@@ -2,15 +2,17 @@
 a platypus is technically a mammal
 
 Welcome to our web application, Fuel Up! 
-With the rise of electric cars hitting the roads these days with no shortage of gas-powered cars, Fuel Up gives the user a one-stop hop to the nearest station!!! Including address, phone number, distance (gas), and charging type (electric).
 
-Fuel Up has users enter in their address and choose the type of fueling station they are looking for. Once they click Submit, they are presented with the closest 10 results.
+- With the rise of electric cars hitting the roads these days with no shortage of gas-powered cars, Fuel Up gives the user a one-stop hop to the nearest station!!! Including address, phone number, distance (gas), and charging type (electric).
+
+- Fuel Up has users enter in their address and choose the type of fueling station they are looking for. Once they click Submit, they are presented with the closest 10 results.
 
 - User just got spouse an electric vehicle and is still truckin’ down the highway with gasoline under the hood. The couple wants a quick way for drivers in either vehicle to find the closest charging station, especially in a bind when their fuel is low. - 
 
 
-added readme branch 
  ## Deployed site: https://team6diamondplatipi.github.io/TechnicallyAMammal/ 
+ 
+ 
 ## CHECKLIST BASED ON GUIDELINES 
 ## Application Requirements</p>
 <p>	Must use at least two server-side APIs</p>

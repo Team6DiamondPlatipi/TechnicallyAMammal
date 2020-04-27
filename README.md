@@ -13,7 +13,6 @@ Welcome to our web application, Fuel Up!
  ## Deployed site: https://team6diamondplatipi.github.io/TechnicallyAMammal/ 
  
  
-## CHECKLIST BASED ON GUIDELINES 
 ## Application Requirements</p>
 <p>	Must use at least two server-side APIs</p>
 <p>	Must use a CSS framework _other than_ Bootstrapv
